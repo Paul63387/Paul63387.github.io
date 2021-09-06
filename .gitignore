@@ -1,36 +1,8 @@
-# Idea
-.idea/*
-
-# Mac OS
-.DS_Store
-
-# Byte-compiled / optimized / DLL files
-*.manifest
-*.spec
-
-# Jekyll dev or build
-_site/*
-_development_tool/*
-.sass-cache/*
-*.css.map
-*.scssc
-.bundle/*
-/vendor/
-.jekyll-cache/*
-*/.jekyll-cache/*
-
-# Theme Gem
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+alembic-jekyll-theme-*.gem
 Gemfile.lock
-*.gem
-.gems
-jekyll-theme-type-on-strap.gemspec
+**/Gemfile.lock
 
-# Node.js
-**/node_modules/*
-**/package-lock.json
-
-# Misc
-*-test.md
-*copy.md
-test/*
-/type-on-strap*/*

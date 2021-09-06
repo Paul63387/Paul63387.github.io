@@ -1,612 +1,286 @@
-# Type on Strap 🎨
+# [Alembic](https://alembic.darn.es/)
+[![Gem Version](https://badge.fury.io/rb/alembic-jekyll-theme.svg)](https://badge.fury.io/rb/alembic-jekyll-theme)
 
-[![Build](https://github.com/sylhare/Type-on-Strap/actions/workflows/jekyll-build.yml/badge.svg)](https://github.com/sylhare/Type-on-Strap/actions/workflows/jekyll-build.yml)
-[![Gem Version](https://badge.fury.io/rb/type-on-strap.svg)](https://badge.fury.io/rb/type-on-strap)
-[![Docker Pulls](https://img.shields.io/docker/pulls/sylhare/type-on-strap)](https://hub.docker.com/r/sylhare/type-on-strap)
+⚗ A Jekyll boilerplate theme designed to be a starting point for any Jekyll website.
 
-[![Default Type on Strap blog](https://github.com/Sylhare/Type-on-Strap/blob/master/assets/img/screenshot.png?raw=true)](https://sylhare.github.io/Type-on-Strap/)
+![Screenshot](https://raw.githubusercontent.com/daviddarnes/alembic/master/screenshot.png)
 
-A free and open-source [Jekyll](https://jekyllrb.com) theme. Based on Rohan Chandra [type-theme](https://github.com/rohanchandra/type-theme) packed with extra features and easily customizable:
+[<img src="https://cdn.buymeacoffee.com/buttons/default-yellow.png" width="217"/>](https://buymeacoffee.com/daviddarnes#support)
 
-* Responsive design on all devices (🖥, 💻, 📱, ...)
-* Portfolio 🗂, Gallery 🖼 pages for your projects
-* Multi comments 💬 options  
-* Tags compatibility 🏷
-* Handle _Bootstrap_'ed pages: [Get Bootstrap](http://getbootstrap.com/)
-* 🔎 Search feature: [Simple-Jekyll-Search](https://github.com/christian-fei/Simple-Jekyll-Search)
-* Math Rendering : [KateX](https://github.com/Khan/KaTeX)
-* Diagram Rendering: [Mermaid-js](https://github.com/mermaid-js/mermaid)
-* 🖋 Nice fonts: [Font Awesome](https://fontawesome.com/), [Source Sans Pro](https://fonts.google.com/specimen/Source+Sans+Pro), [Pacifico](https://fonts.google.com/specimen/Pacifico?selection.family=Pacifico) 
-* Seo Tags: [Jekyll-seo-tag](https://github.com/jekyll/jekyll-seo-tag)
-* 🛠 Syntax Highlighting: Easily customisable [Base16](https://github.com/chriskempson/base16)
-* 💡 Light and dark theme supported
-* Find free of rights images on [pexels](https://www.pexels.com/)
+## Contents
+- [About](#about)
+- [Features](#features)
+- [Examples](#examples)
+- [Installation](#installation)
+- [Customising](#customising)
+- [Configuration](#configuration)
+  - [Gem dependency settings](#gem-dependency-settings)
+  - [Site settings](#site-settings)
+  - [Site performance settings](#site-performance-settings)
+  - [Site navigation](#site-navigation)
+  - [Custom fonts](#custom-fonts)
+- [Using includes](#using-includes)
+- [Page layouts](#page-layouts)
+- [Page and Post options](#page-and-post-options)
+- [Credits](#credits)
 
-> [Demo Site](https://sylhare.github.io/Type-on-Strap/)
+## About
 
-## Usage
+**Alembic is a starting point for [Jekyll](https://jekyllrb.com/) projects. Rather than starting from scratch, this boilerplate theme is designed to get rolling immediately. Install it, configure it, tweak it, push it.**
 
-### As a ruby gem 💎
+## Features
 
-Check out this tutorial: [Use as Ruby Gem](#use-as-ruby-gem-)
+- Available as a **theme gem** and **GitHub Pages** theme
+- Clear and elegant design that can be used out of the box or as solid starting point
+- Tested in all major browsers, including **IE and Edge**
+- Built in **Service Worker** so it can work offline and on slow connections
+- **Configurable colours** and typography in a single settings file
+- Extensive set of **shortcodes** to include various elements; such as buttons, icons, figure images and more
+- Solid **typographic framework** from [Sassline](https://sassline.com/)
+- Configurable navigation via a single file
+- Modular Jekyll components
+- Post category support in the form of a single post index page grouped by category
+- Built in live search using JavaScript
+- **Contact form** built in using [Formspree](https://formspree.io/) or [Netlify Forms](https://www.netlify.com/features/#forms)
+- Designed with **[Siteleaf](http://www.siteleaf.com/)** in mind
+- Has 9 of the most popular networks as performant sharing buttons
+- Has documentation
 
-### As a github page 📋
+## Examples
 
-1. Fork and clone the [Type on Strap repo](https://github.com/sylhare/Type-On-Strap): `git clone https://github.com/Sylhare/Type-on-Strap.git`
-2. Install [Jekyll](https://jekyllrb.com/docs/installation/): `gem install jekyll`, check [#1](https://github.com/Sylhare/Type-on-Strap/issues/1) if you have a problem.
-3. Install the theme's dependencies: `bundle install`
-4. Customize the theme
-	- GitHub Page: [update `_config.yml`](#site-configuration)
-5. Run the Jekyll server: `bundle exec jekyll serve`
+Here are a few examples of Alembic out in the wild being used in a variety of ways:
 
-## Structure
+- [billmei.net](https://billmei.net/)
+- [bawejakunal.github.io](https://bawejakunal.github.io/)
+- [case2111.github.io](https://case2111.github.io/)
+- [karateca.org](https://www.karateca.org/)
 
-Here are the main files of the template
+## Installation
 
-```bash
-Type-on-Strap
-├── _includes	               # theme includes
-├── _layouts                   # theme layouts (see below for details)
-├── _portfolio	               # collection of article to be populated in the portfolio page
-├── _posts                     # Blog posts
-├── _sass                      # Sass partials 
-├── assets
-|  ├── js	               # theme javascript, Katex, jquery, bootstrap, jekyll search, 
-|  ├── css                     # isolated Bootstrap, font-awesome, katex and main css
-|  ├── fonts		       # Font-Awesome, and other fonts
-|  └── img		       # Images used for the template
-├── pages
-|   ├── 404.md		       # To be displayed when url is wrong
-|   ├── about.md               # About example page
-|   ├── gallery.md             # Gallery page for your photos
-|   ├── portfolio.md	       # Portfolio page for your projects
-|   ├── search.html	       # Search page
-|   └── tags.md                # The tag page
-├── _config.yml                # sample configuration
-├── _data.yml
-|  ├── authors.yml             # Update the post authors configurations 
-|  ├── language.yml            # Localization configuration
-|  ├── social.yml              # Social configurations to share posts (RSS, shares, ...)
-|  └── icons.yml               # Footer icons (Twitter, Github, Stackoverflow, ...)
-└── index.html                 # sample home page (blog page paginated)
-```
-	
-## Configure Type on Strap 🛠
+### Quick setup
 
-Open `_config.yml` in a text editor to change most of the blog's settings.
+To give you a running start I've put together some starter kits that you can download, fork or even deploy immediately:
 
-If a variable in this document is marked as "optional", disable the feature by removing all text from the variable. 
+- Vanilla Jekyll starter kit:
+  [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/daviddarnes/alembic-kit)
+- Forestry starter kit:
+  [![Deploy to Forestry](https://assets.forestry.io/import-to-forestry.svg)](https://app.forestry.io/quick-start?repo=daviddarnes/alembic-forestry-kit&engine=jekyll)
+  [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/daviddarnes/alembic-forestry-kit)
+- Netlify CMS starter kit:
+  [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/daviddarnes/alembic-netlifycms-kit&stack=cms)
 
-### Site configuration
+- GitHub Pages with remote theme kit - **[Download kit](https://github.com/daviddarnes/alembic-kit/archive/remote-theme.zip)**
+- Stackbit starter kit:
+  [![Create with Stackbit](https://assets.stackbit.com/badge/create-with-stackbit.svg)](https://app.stackbit.com/create?theme=https://github.com/daviddarnes/alembic-stackbit-kit)
 
-Configure Jekyll as your own blog or with a "baseurl" in `_config.yml`:
+### As a Jekyll theme
 
-Jekyll website *without* a "baseurl" (such as a GitHub Pages website for a given username):
+1. Add `gem "alembic-jekyll-theme"` to your `Gemfile` to add the theme as a dependancy
+2. Run the command `bundle install` in the root of project to install the theme and its dependancies
+3. Add `theme: alembic-jekyll-theme` to your `_config.yml` file to set the site theme
+4. Run `bundle exec jekyll serve` to build and serve your site
+5. Done! Use the [configuration](#configuration) documentation and the example [`_config.yml`](https://github.com/daviddarnes/alembic/blob/master/_config.yml) file to set things like the navigation, contact form and social sharing buttons
 
-```yml
-baseurl: ""
-url: "https://username.github.io"
-```
+### As a GitHub Pages remote theme
 
-Jekyll website *with* "baseurl" (like the Type on Strap [demo](https://sylhare.github.io/Type-on-Strap/) page):
+1. Add `gem "jekyll-remote-theme"` to your `Gemfile` to add the theme as a dependancy
+2. Run the command `bundle install` in the root of project to install the jekyll remote theme gem as a dependancy
+3. Add `jekyll-remote-theme` to the list of `plugins` in your `_config.yml` file
+4. Add `remote_theme: daviddarnes/alembic@main` to your `_config.yml` file to set the site theme
+5. Run `bundle exec jekyll serve` to build and serve your site
+6. Done! Use the [configuration](#configuration) documentation and the example [`_config.yml`](https://github.com/daviddarnes/alembic/blob/master/_config.yml) file to set things like the navigation, contact form and social sharing buttons
 
-```yml
-baseurl: "/sub-directory"
-url: "https://username.github.io/"
-```
+### As a Boilerplate / Fork
 
-Please configure this  before using the theme.
+_(deprecated, not recommended)_
 
-### Meta and Branding
+1. [Fork the repo](https://github.com/daviddarnes/alembic#fork-destination-box)
+2. Replace the `Gemfile` with one stating all the gems used in your project
+3. Delete the following unnecessary files/folders: `.github`, `LICENSE`, `screenshot.png`, `CNAME` and `alembic-jekyll-theme.gemspec`
+4. Run the command `bundle install` in the root of project to install the jekyll remote theme gem as a dependancy
+5. Run `bundle exec jekyll serve` to build and serve your site
+6. Done! Use the [configuration](#configuration) documentation and the example [`_config.yml`](https://github.com/daviddarnes/alembic/blob/master/_config.yml) file to set things like the navigation, contact form and social sharing buttons
 
-Meta variables hold basic information about your Jekyll site which will be used throughout the site 
-and as meta properties for search engines, browsers, and the site's RSS feed.
+## Customising
 
-Change these variables in `_config.yml`:
+When using Alembic as a theme means you can take advantage of the file overriding method. This allows you to overwrite any file in this theme with your own custom file, by matching the file name and path. The most common example of this would be if you want to add your own styles or change the core style settings.
 
-```yml
-title: My Jekyll Blog                 # Name of website
-avatar: assets/img/triangle.png       # Path of avatar image, to be displayed in the theme's header
-description: My blog posts            # Short description, primarily used by search engines
-favicon: assets/favicon.ico           # Icon displayed in the tab
-color_theme: auto                     # color theme auto, dark or light
-```
+To add your own styles copy the [`styles.scss`](https://github.com/daviddarnes/alembic/blob/master/assets/styles.scss) into your own project with the same file path (`assets/styles.scss`). From there you can add your own styles, you can even optionally ignore the theme styles by removing the `@import "alembic";` line.
 
-You can also customize the seo tags default option following the jekyll-seo-tag plugin [documentation](http://jekyll.github.io/jekyll-seo-tag/advanced-usage/).
-The color theme can be set to dark or light (customize it in _variables.scss_). 
-Using _auto_ you'll have a tiny icon in the navbar allowing the use to manually switch from dark to light theme.
+If you're looking to set your own colours and fonts you can overwrite them by matching the variable names from the [`_settings.scss`](https://github.com/daviddarnes/alembic/blob/master/_sass/_settings.scss) file in your own `styles.scss`, make sure to state them before the `@import "alembic";` line so they take effect. The settings are a mixture of custom variables and settings from [Sassline](https://medium.com/@jakegiltsoff/sassline-v2-0-e424b2881e7e) - follow the link to find out how to configure the typographic settings.
 
-### Theme customization 🎨
+## Configuration
 
-#### Footer and Header's text
+There are a number of optional settings for you to configure. Use the example [`_config.yml`](https://github.com/daviddarnes/alembic/blob/master/_config.yml) file in the repo and use the documentation below to configure your site:
 
-Customize your site header/footer with these variables in `_config.yml`:
+### Gem dependency settings
 
-```yml
-header_text: Welcome to my Jekyll blog
-header_feature_image: assets/img/sample3.png
-footer_text: Copyright 2017
-```
+`twitter`, `author` and `social` values will need to be changed to the projects' social information or removed. Look for the `Gem settings` comment within the `/_config.yml` file. These values are for the [jekyll-seo-tag](https://github.com/jekyll/jekyll-seo-tag) - follow the link to find out more.
 
-If you don't want anything, replace the value by `" "`.
+### Site settings
 
-#### Localisation string
+You'll need to change the `description`, `title` and `url` to match with the project. You'll also need to replace the logos, default social and default offline images in the `/assets/` directory with your own graphics. Setting the site language can be done with `lang`, the theme will default to `en-US`. The `email` needs to be changed to the email you want to receive contact form enquires with. The `disqus` value can be changed to your project username on [Disqus](https://disqus.com), remove this from the `/_config.yml` file if you don't want comments enabled. Look for the `Site settings` comment within the `/_config.yml` file. The `repo` setting is optional, for now, and can be removed entirely, if you wish.
 
-Localization string is a way to quickly change the template language for text like *Next Post* or *Follow on*, ...
-You can find all the properties in `_data/language.yml`.
+Google Analytics can be enabled via the site configuration too. Add your tracking ID to the `/_config.yml` file in the following method: `google_analytics: 'UA-XXXXXXXX-1'`. By default all IPs of site visitors are anonymous to maintain a level of privacy for the audience. If you wish to turn this off set the `google_analytics_anonymize_ip` key to `false`.
 
-By default, it is in english, but you can easily add your own language.
+Date format can be customised in the `/_config.yml` with the option `date_format` (please refer to Liquid date filters documentation for learning about formatting possibilities). Only placeholder formatting is supported, do not try to use ordinal dates introduced in Jekyll 3.8.
 
-### Google Analytics
+The `short_name` option within `/_config.yml` is to add a custom name to the site's web application counterpart. When the website is added to a device this name will appear alonside the app icon. The short name will default to the site title if this isn't set.
 
-To enable Google Analytics, add your [tracking ID](https://support.google.com/analytics/answer/1032385) 
-to `_config.yml` like so:
+### Site performance settings
 
-```yml
-google_analytics: UA-NNNNNNNN-N
-```
+Alembic comes with a couple of options to enhance the speed and overall performance of the site you build upon it.
 
-### Comments 💬
+By default the built in Service Worker is enabled, and will work on a 'network first' method. Meaning if there's no internet connection the content the Service Worker has cached will be used until the connection comes back. It will always look for a live version of the code first. To disable the Service Worker add an option called `service_worker` with a value of `false` in the `/_config.yml` file.
 
-#### Disqus
+Another option to speed up Alembic is to enable inline CSS, which is off by default. You can enable this by setting `css_inline: true` inside your `/_config.yml` file. By switching to inline styles you bypass the use `/assets/styles.scss`, any custom styles will need to be added in `/_includes/site-styles.html` or in a new custom file.
 
-If you have a [Disqus](https://disqus.com/) account, you can show a comments section below each post.
+Please note that these options aren't a "silver bullet" for making your site faster, make sure to audit and debug your site to get the best performance for your situation.
 
-To enable Disqus comments, add your [Disqus shortname](https://help.disqus.com/customer/portal/articles/466208) 
-to your project's `_config.yml` file:
+### Site navigation
 
-```yml
-comments:
-  disqus_shortname: my_disqus_shortname
-```
+There are a total of 4 different navigation types:
 
-#### Cusdis
+- `navigation_header`: The links shown in the header (it is also used on the 404 page)
+- `navigation_footer`: The links shown in the footer
+- `social_links`: The social icon links that are shown in the sidebar
+- `sharing_links`: The social sharing buttons that are shown at the bottom of blog posts
 
-[Cusdis](https://cusdis.com/) is an open source alternative to Disqus.
-You can read more about it in the [documentation](https://cusdis.com/doc#/)
+All navigations can be edited using the `_config.yml` file. To see example usage either look for the `Site navigation` comment within the `/_config.yml` file or see [the nav-share.html include](#nav-sharehtml).
 
-To enable it, set your cusdis name in `_config.yml`:
+If there are no items for the `navigation_header` or `navigation_footer`, they will fallback to a list of pages within the site. The `social_navigation` properties should either be one that is already in the list (so `Twitter` or `Facebook`) or a regular `link`, this is so an icon can be set for the link.
 
-```yaml
-comments:
-  cusdis_app_id: my_data-app-id                                     
-```
+### Custom fonts
 
-#### Utterances
+Alembic comes with custom fonts served from Google fonts. By default it requests Merriweather but this can be any font from any provider assuming it supports requesting fonts in the same manner and does not require javascript.
 
-[Utterances](https://utteranc.es) is another open source alternative linked to one's GitHub account.
-It stores the comments as GitHub issues on a repository for each page.
+This can be configured under the `custom_fonts` key.
 
-Install the utterance [app](https://github.com/apps/utterances) to your repo.
-After installing, add your info in the `_config.yml`:
+- `urls`: The urls supplied to you from your font provider (eg https://fonts.googleapis.com/css2?family=Merriweather). For best performance try to use as few urls as possible
+- `preconnect`: (optional) If your font provider serves the font files from another domain it can be useful to make a connection to that domain in advance. For example google load the font files from fonts.gstatic.com. This can be omitted if not required
 
-```yaml
-comments:
-  utterances:              # Enable by filling below information. For more info, go to https://utteranc.es
-    repo:                  # your public comments repository (e.g. owner/repo)
-    issue-term:            # Issue term (e.g. "comment" consider issues with this word in the title as comments)
-    theme:                 # OPTIONAL: Take the `color_theme` by default, or set a custom one like github-dark-orange
-    label:                 # OPTIONAL: Adds an issue label in the issue
-```
+If you want to customise this further you can find the include for custom fonts in `_includes/site-custom-fonts.html`.
 
-### Math typesetting with KateX
+## Using includes
 
-When KateX is set in `_config.yml`:
+There are 2 main types of includes: ones designed for the site and ones that are designed as shortcodes. Here are a list of the shortcode includes:
 
-```yml
-katex: true # to enable it
-```
+### `button.html`
+A button that can link to a page of any kind.
 
-You can then wrap math expressions with `$$` signs in your posts and make sure you have set the `katex` variable 
-in `_config.yml` to `true` for math typesetting.
+Example usage: `{% include button.html text="I'm a button" link="https://david.darn.es" %}`
 
-For inline math typesetting, type your math expression on the *same line* as your content. For example:
+Available options:
+- `text`: The text of the button _required_
+- `link`: The link that the button goes to _required_
+- `icon`: The icon that is added to the end of the button text
+- `color`: The colour of the button
 
-```latex
-Type math within a sentence $$2x^2 + x + c$$ to display inline
-```
+### `figure.html`
+An image with optional caption.
 
-For display math typesetting, type your math expression on a *new line*. For example:
+Example usage: `{% include figure.html image="/uploads/feature-image.jpg" caption="Check out my photo" %}`
 
-```latex
-$$
-  \bar{y} = {1 \over n} \sum_{i = 1}^{n}y_i
-$$
-```
+Available options:
+- `image`: The image shown _required_
+- `caption`: A caption to explain the image
+- `position`: The position of the image; `left`, `right` or `center`
+- `width` & `height`: Optional width and height attributes of the containing image
 
-You can find a cheat sheet of the compatible LaTex symbols [online](https://artofproblemsolving.com/wiki/index.php/LaTeX:Symbols).
+### `icon.html`
+An icon.
 
-### Diagrams with Mermaid
+Example usage: `{% include icon.html id="twitter" %}`
 
-Enable the [mermaid-js](https://github.com/mermaid-js/mermaid) diagram rendering by setting mermaid to true in the `_config.yml`.
-This will load and init the [mermaid.min.js](https://mermaid-js.github.io/mermaid/getting-started/n00b-gettingStarted.html#4-calling-mermaid-from-a-relative-link).
+Available options:
+- `id`: The reference for the icon _required_
+- `title`: The accessible label for the icon
+- `color`: The desired colour of the icon
+- `width` & `height`: Width and height attributes for the icon, default is `16`
 
-```yml
-mermaid: true # to Enable it
+### `nav-share.html`
+A set of buttons that share the current page to various social networks, which is controlled within the `_config.yml` file under the `sharing_links` keyword.
+
+Example usage: `{% include nav-share.html %}`
+
+Available options:
+``` yml
+Twitter: "#1DA1F2"
+facebook: "#3B5998"
+Pinterest: "#BD081C"
+LinkedIn: "#0077B5"
+tumblr: "#36465D"
+Reddit: "#FF4500"
+HackerNews: "#ff6600"
+DesignerNews: "#2D72D9"
+Email: true
 ```
 
-Find all the help you need on the official [mermaid documentation](https://mermaid-js.github.io/mermaid/).
-You can create with ease diagrams. Add your mermaid script inside two mermaid divs (default Kramdown does not yet support mermaid).
-With the `class="mermaid"` inside the `<div>`:
+_The first item is the name of the network (must be one of the ones stated above) and the second is the colour of the button. To remove a button remove the line of the same name._
 
-```html
-<div class="mermaid">
-sequenceDiagram
-    Alice->>John: Hello John, how are you?
-    John-->>Alice: Great!
-</div>
-```
+### `video.html`
+A YouTube video.
 
-### Social icons
+Example usage: `{% include video.html id="zrkcGL5H3MU" %}`
 
-In `_data/social.yml` you can customize the social icons that will be displayed in the post to share your post.
-You can also enable RSS.
-The site icons come from [Font Awesome](https://fontawesome.com/).
+Available options:
+- `id`: The YouTube ID for the video _required_
 
-In `_data/icons.yml` you can set the footer icon that will appear at the bottom of the page.
-They will redirect the user on your profile on the other platform like Twitter, GitHub and so many more!
+### `map.html`
+A Google map. _See Google [My Maps](https://www.google.com/mymaps)_
 
-### Cookie consent
+Example usage: `{% include map.html id="1UT-2Z-Vg_MG_TrS5X2p8SthsJhc" %}`
 
-You can add a cookie consent with a disclaimer if you use Google Analytics while respecting the [GDPR](https://en.wikipedia.org/wiki/General_Data_Protection_Regulation).
-Set to true, there will be a banner at the bottom of the page with the disclaimer, and an _approve_ button.
-Once the user clicks on "Approve" the cookies will be created for Google Analytics.
+Available options:
+- `id`: The map ID for the video _required_
 
-#### Share in article
+### `site-form.html`
+Adds a contact form to the page. This can be used with [Formspree](https://formspree.io/) or [Netlify Forms](https://www.netlify.com/docs/form-handling/) depending on your setup.
 
-The share icons are the one at the bottom of the blog page if enabled, 
-to share the article on those platform.
+Example usage: `{% include site-form.html %}`
 
-#### Footer
+Available options:
+- `netlify_form=true`: Set whether you would like to use Netlify Forms, otherwise the form will default to Formspree
+- `name`: Give the form a name, by default the form is called "Contact". The name will be reflected when form submissions come through in Netlify or in your email client. The name is also used in the label and input elements for accessibility
 
-Display in the footer. 
-All icon variables should be your username enclosed in quotes (e.g. "username") in `_data/social.yml`, 
-except for the following variables:
 
-```yml
-rss: true                                                   
-email_address: type@example.com
-linkedin: https://www.linkedin.com/in/FirstLast
-stack_exchange: https://stackexchangecom/users/0000/first-last
-stack_overflow: https://stackoverflow.com/users/0000/first-last
-youtube: UCqECaJ8Gagnn7YCbPEzWH6g  # Youtube token of your channel in the url 
-```
+Use the `email` option in the `/_config.yml` to change to the desired email.
 
-You can update the RSS settings in `_data/social` to change the default feed path (generated by [jekyll-feel](https://github.com/jekyll/jekyll-feed)).
+### `site-search.html`
+Adds a search form to the page.
 
-### Personalize your Blog Posts 📝
+Example usage: `{% include site-search.html %}`
 
-When writing a post, be sure in jekyll to:
- - Put it in the `_posts` folder
- - Name it with the date first like `2019-08-21-This-is-my-blog-post.md`
+This include has no options. This include will add a block of javascript to the page and javascript reference in order for the search field to work correctly.
 
-Please refer to the [Jekyll docs for writing posts](https://jekyllrb.com/docs/posts/). 
+### `site-before-start.html` & `site-before-end.html`
+Optional html includes for adding scripts, css, js or any embed code you wish to add to every page without the need to overwrite the entire `default.html` template.
 
-#### Layout: Post
+**Example usage:** These are different to other includes as they are designed to be overwritten. If you create a `site-before-start.html` file in the `_includes/` the contents of the file will be included immediately before the closing `</head>` tag. If you create a `site-before-end.html` file the contents of the file will be included immediately before the closing `</body>` tag.
 
-These are the basic features you can use with the `post` layout.
+## Page layouts
 
-```yml
+As well as `page`, `post`, `blog`, there are a few alternative layouts that can be used on pages:
 
----
-layout: post
-title: Hello World                                # Title of the page
-hide_title: true                                  # Hide the title when displaying the post, but shown in lists of posts
-feature-img: "assets/img/sample.png"              # Add a feature-image to the post
-thumbnail: "assets/img/thumbnails/sample-th.png"  # Add a thumbnail image on blog view
-color: rgb(80,140,22)                             # Add the specified color as feature image, and change link colors in post
-bootstrap: true                                   # Add bootstrap to the page
-tags: [sample, markdown, html]
----
-```
+- `categories`: Shows all posts grouped by category, with an index of categories in a left hand sidebar
+- `search`: Adds a search field to the page as well as a simplified version of the sidebar to allow more focus on the search results
 
-With `thumbnail`, you can add a smaller image than the `feature-img`. 
-If you don't have a thumbnail you can still use the same image as the feature one. Or use the gulp task to create it.
+## Page and Post options
 
-The background used when `color` is set comes from `lineart.png` from [xukimseven](https://github.com/xukimseven) 
-you can edit it in the config file (`_config.yml > color_image`). If you want another one, put it in `/assets/img` as well. 
+There are some more specific options you can apply when creating a page or a post:
 
-The **bootstrap** is not mandatory and is only useful if you want to add bootstrapped content in your page. 
-It will respect the page and theme layout, mind the padding on the sides.
+- `aside: true`: Adds a sidebar to the page or post, this is false by default and will not appear
+- `comments: false`: Turns off comments for that post
+- `feature_image: "/uploads/feature-image.jpg"`: Adds a full width feature image at the top of the page
+- `feature_text: "Example text"`: Adds text to the top of the page as a full width feature with solid colour; supports markdown. This can be used in conjunction with the `feature_image` option to create a feature image with text over it
+- `indexing: false`: Adds a `noindex` meta element to the `<head>` to stop crawler bots from indexing the page, used on the 404 page
 
-#### Post excerpt
+> **Note:** The Post List Page options are actually in the collection data within the `_config.yml` file.
 
-The [excerpt](https://jekyllrb.com/docs/posts/#post-excerpts) are the first lines of an article that is display on the blog page. 
-The length of the excerpt has a default of around `250` characters or can be manually set in the post using:
+## Credits
 
-in `conflig.yml`:
-
-```yml
-excerpt: true
-```
-
-Then in your post, add the `excerpt separator`:
-
-```yml
-
----
-layout: post
-title: Sample Page
-excerpt_separator: <!--more-->
----
-
-some text in the excerpt
-<!--more-->
-... rest of the text not shown in the excerpt ...
-```
-
-The html is stripped out of the excerpt, so it only displays text.
-
-#### Image aligner
-
-To easily add align images side by side in your article using the `aligner.html` include:
-
-```ruby
-{% include aligner.html images="path/to/img1.png,path/to/img2.png,path/to/img3.png" column=3 %}
-```
-
-Use it in any markdown file. There are two fields in the _include_ you need to look into:
-  - _images_: Takes a string separated with `,` of all the images' path. 
-    - It by default look into `assets/img/` so give the path from there.
-  - _column_: (OPTIONAL) Set the number of column you want your imaged displayed in.
-    - default is 2 columns
-    - `column=3` set 3 columns
-    - `column="auto"` makes as many columns as images
-
-#### Code highlight
-
-Like all CSS variables in the theme, you can edit the color of the code highlight in *_sass > base > _variables.scss*.
-The code highlighting works with [base16](https://github.com/chriskempson/base16-html-previews/tree/master/css) you can find existing example 
-of your favourite highlight color scheme on this format.
-
-## Feature pages and layouts 
-
-All feature pages besides the "home" one are stored in the `page` folder, 
-they will appear in the navigation bar unless you set `Hide: true` in the front matter. 
-
-Here are the documentation for the other feature pages that can be added through `_config.yml`. 
-
-Non-standard features are documented below.
-
-### Layout: Default
-
-This layout includes the head, navigation bar and footer around your content. 
-Unless you're making a custom layout you won't need it.
-
-### Layout: Home 🏡
-
-This page is used as the home page of the template (in the `index.html`). It displays the list of articles in `_posts`.
-You can use this layout in another page (adding a title to it will make it appear in the navigation bar).
-
-The recommended width and height for the home picture is width:`2484px;` and height:`1280px` 
-which are the dimensions of the actual picture for it to be rolling down as you scroll the page.
-
-If your posts are not displaying ensure that you have added the line `paginate: 5` to `_config.yml`.
-
-### Layout: Page 📄
-
-The page layout have a bit more features explained here.
-
-```yml
-
----
-layout: page
-title: "About" 
-subtitle: "This is a subtitle"   
-feature-img: "assets/img/sample.png" 
-permalink: /about.html               # Set a permalink your your page
-hide: true                           # Prevent the page title to appear in the navbar
-icon: "fa-search"                    # Will Display only the fontawesome icon (here: fa-search) and not the title
-tags: [sample, markdown, html]
----
-```
-
-The hide only hides your page from the navigation bar, it is however still generated and can be access through its link. 
-
-### Feature: Portfolio 🗂
-
-Portfolio is a feature page that will take all the markdown/html files in the `_portfolio` folder to create a 3-columns image portfolio matrix.
-
-To use the portfolio, simply create a `portfolio.md` with this information inside:
-
-```yml
-
---- 
-layout: page
-title : Portfolio 
----
-
-{% include default/portfolio.html %}
-```
-
-#### Portfolio posts
-
-You can format the portfolio posts in the `_portfolio` folder using the `post layout`. Here are little explaination on some of the possible feature you can use and what they will do.
-
-If you decide to use a date, please be sure to use one that can be parsed such as `yyyy-mm-dd`. You can see more format example on the demo posts that are available for the theme:
-
-```yml
-
----
-layout: post
-title: Circus				       # Title of the portfolio post
-feature-img: "assets/img/portfolio/cake.png"   # Will display the image in the post
-img: "assets/img/portfolio/cake.png"           # Will display the image in the portfolio page
-date: 2019-07-25		 	       # Not mandatory, however needs to be in date format to display the date
----
-```
-
-#### Portfolio in gem
-
-Make sure your `_config.yml` contains the following if you are using the theme as a gem:
-
-```yml
-# PORTFOLIO
-collections:
-  portfolio:
-    output: true
-    permalink: /:collection/:name
-```    
-
-This creates the collection for Jekyll, so it can find and display your portfolio posts.
-
-### Feature: Gallery 🖼
-
-You can create a gallery using [Masonry JS](https://masonry.desandro.com/) which will placing the pictures in optimal position 
-based on available vertical space. 
-You need to specify the `gallery_path` which will be used to find the pictures to render. 
-It will take all the pictures under that directory. Then use the `include` to add it in your page. 
-
-```yml
-
----
-layout: page
-title: Gallery
-gallery: "assets/img/pexels"
----
-
-{% include default/gallery.html gallery_path=page.gallery %}
-```
-
-
-### Feature: Search 🔍
-
-The search feature is based on [Simple-Jekyll-search](https://github.com/christian-fei/Simple-Jekyll-Search) 
-there is a `search.json` file that will create a list of all the site posts, pages and portfolios. 
-
-Then there's a `search.js` displaying the formatted results entered in the `search.html` page.
-
-The search page can be hidden with the `hide` option. You can remove the icon by removing `icon`:
-
-```yml
-
----
-layout: search
-title: Search
-icon: "search"
----
-```
-
-### Feature: Tags 🏷
-
-Tags should be placed between `[]` in your post metadata. Separate each tag with a comma. 
-Tags are recommended for posts and portfolio items.
-
-For example:
-
-```yml
-
----
-layout: post
-title: Markdown and HTML
-tags: [sample, markdown, html]
----
-```
-
-> Tags are case-sensitive `Tag_nAme` ≠ `tag_name`
-
-All the tags will be listed in `tags.html` with a link toward the pages or posts.
-The Tag page can be hidden with the `hide` option. You can remove the icon by removing `icon` (like for the search page).
-
-## Advanced
-
-### Liquid tags
-
-Jekyll works with [liquid](https://shopify.github.io/liquid/) tags usually represented by:
-
-```
-{{ liquid.tag | filter }}
-```
-
-These are useful to render your jekyll files. 
-You can learn more about them on [shopify's doc](https://help.shopify.com/themes/liquid/basics)
-
-### Gulp toolbox
-
-#### Requirements
-
-Before you need to have *node* and `npm` installed:
-
-- Windows: https://nodejs.org/
-- Ubuntu/Debian: `apt-get install nodejs npm libgl1 libxi6`
-- Fedora (dnf) / RHEL/CentOS (yum): `dnf install node npm libglvnd-glx libXi`
-
-Then you need to install [`gulp-cli`](https://gulpjs.com/) and its dependencies:
-
-```bash
-cd assets/
-sudo npm install gulp-cli -g
-npm install
-```
-
-#### Minimizing and optimizing: css, js and images
-
-You can run the default task that will compress the js, css and images and create the thumbnails for the supported image
-formats:
-
-```bash
-cd assets/
-gulp default
-gulp thumbnails-all # to create all of the images thumbnails
-gulp thumbnails     # to create thumbnails for the feature-img/ only
-# tip: run a git status to see the changes
-git status
-```
-
-You can find more about the gulp tasks in the [gulpfile.js](assets/gulpfile.js).
-
-#### Create a post
-
-To create a `.md` file in the *_posts/* section with the jekyll format of today's date.
-Use this command with the title you'd like to create the very basic post.
-
-```bash
-gulp post -n 'title of the post'
-```
-
-A file will be created following the format `yyyy-mm-dd-title-of-the-post.md` with default post attributes inside.
-Nothing will happen if the file exists already.
-
-### Use as Ruby Gem 💎
-
-You can use Type-on-strap as a [gem](https://rubygems.org/gems/type-on-strap). 
-
-Ruby Gem Method
-Add this line to your Jekyll site's Gemfile (or create one):
-
-```ruby
-gem "type-on-strap"
-```
-
-Add this line to your Jekyll site's `_config.yml` file:
-
-```yml
-theme: type-on-strap
-```
-
-Then run Bundler to install the theme gem and dependencies:
-
-```bash
-bundle install
-```
-
-Then you can start adding content like:
-  - Add a `index.html` file
-  - Add the feature page you want. (ex: as it is already in `pages`)
-  - Add posts in `_posts` and `_portfolio` to be displayed
-
-### Remote Theme
-
-Now you can use any theme gem with GitHub pages with [29/11/2017 Github Pages Broadcast](https://github.com/blog/2464-use-any-theme-with-github-pages).
-For that remove all `theme:` attributes from `_config.yml` and add instead:
-
-```yml
-remote_theme: sylhare/Type-on-Strap 
-```
-
-## License
-
-This theme is licensed under the [The MIT License (MIT)](/LICENSE)
-
-- Pictures from [Pexels](https://www.pexels.com/) are under Creative Commons Zero (CC0) license
-- Fonts are licensed under the [SIL Open Font License (OFL)](https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL) 
+- Thanks to [Simple Icons](https://simpleicons.org/) for providing the brand icons, by [Dan Leech](https://twitter.com/bathtype)
+- Thanks to [Sassline](https://sassline.com/) for the typographic basis, by [Jake Giltsoff](https://twitter.com/jakegiltsoff)
+- Thanks to [Flexbox mixin](https://github.com/mastastealth/sass-flex-mixin) by [Brian Franco](https://twitter.com/brianfranco)
+- Thanks to [Normalize](https://necolas.github.io/normalize.css/) by [Nicolas Gallagher](https://twitter.com/necolas) and [Jonathan Neal](https://twitter.com/jon_neal).
+- Thanks to [pygments-css](http://richleland.github.io/pygments-css/) for the autumn syntax highlighting, by [Rich Leland](https://twitter.com/richleland)
