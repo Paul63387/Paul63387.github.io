@@ -1,8 +1,8 @@
 ---
-title: About Alembic
+title: Cristhian Madera
 feature_text: |
   ## Portafolio
-  A Jekyll boilerplate theme designed to be a starting point for any Jekyll website
+  Esta es una página web donde se publicaran varios temas realizados con el análisis de Datos
 feature_image: "https://picsum.photos/1300/400?image=989"
 excerpt: "Alembic is a starting point for [Jekyll](https://jekyllrb.com/) projects. Rather than starting from scratch, this boilerplate is designed to get the ball rolling immediately. Install it, configure it, tweak it, push it."
 ---
