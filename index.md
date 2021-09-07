@@ -1,5 +1,5 @@
 ---
-title: Cristhian Madera
+title: Paúl Madera
 feature_text: |
   ## Portafolio
   Esta es una página web donde se publicaran varios temas realizados con el análisis de Datos
